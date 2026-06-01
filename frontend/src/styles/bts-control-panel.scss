@@ -1,0 +1,139 @@
+/* Styles for the BTS Control Panel component */
+
+.bts-control-panel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    box-sizing: border-box;
+    padding: 1rem;
+    border: 1px solid var(--border-color, #e0e0e0);
+    border-radius: 8px;
+    background-color: var(--button-bg, #ffffff);
+    color: var(--text-color, #2c3e50);
+    text-align: left;
+}
+
+.bts-control-panel__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.bts-control-panel__title {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.bts-control-panel__status {
+    flex: 0 0 auto;
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-color, #e0e0e0);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-color, #2c3e50);
+    background-color: var(--main-bg, #ffffff);
+}
+
+.bts-control-panel__status[data-state="connected"] {
+    color: #0f6b3f;
+    border-color: #7ac99e;
+    background-color: #e7f7ee;
+}
+
+.bts-control-panel__status[data-state="not-configured"] {
+    color: #8f2d2d;
+    border-color: #dda2a2;
+    background-color: #faeeee;
+}
+
+.bts-control-panel__button {
+    width: 100%;
+    min-height: 44px;
+    border: 1px solid #2f6fed;
+    border-radius: 8px;
+    background-color: #2f6fed;
+    color: #ffffff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.bts-control-panel__button:hover:not(:disabled) {
+    background-color: #2559bf;
+    border-color: #2559bf;
+}
+
+.bts-control-panel__button--stop {
+    border-color: #d33b3b;
+    background-color: #d33b3b;
+}
+
+.bts-control-panel__button--stop:hover:not(:disabled) {
+    border-color: #ad2f2f;
+    background-color: #ad2f2f;
+}
+
+.bts-control-panel__button:disabled {
+    color: #7a828e;
+    border-color: var(--border-color, #e0e0e0);
+    background-color: var(--button-hover-bg, #f0f0f0);
+    cursor: not-allowed;
+}
+
+.bts-control-panel__metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem;
+    margin: 0;
+}
+
+.bts-control-panel__metric {
+    min-width: 0;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color, #e0e0e0);
+    border-radius: 6px;
+    background-color: var(--main-bg, #ffffff);
+}
+
+.bts-control-panel__metric--action {
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    padding: 0;
+}
+
+.bts-control-panel__statistics-button {
+    width: 100%;
+    min-height: 100%;
+    padding: 0.75rem;
+    border: 0;
+    border-radius: 6px;
+    background-color: #edf4ff;
+    color: #1f5eb8;
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+}
+
+.bts-control-panel__statistics-button:hover {
+    background-color: #dceaff;
+}
+
+.bts-control-panel__metric dt {
+    margin: 0 0 0.25rem;
+    color: color-mix(in srgb, var(--text-color, #2c3e50) 72%, transparent);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.bts-control-panel__metric dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+    font-size: 1rem;
+    font-weight: 700;
+}

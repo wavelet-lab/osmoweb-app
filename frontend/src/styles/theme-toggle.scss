@@ -1,0 +1,74 @@
+/* Theme Toggle Component Styles */
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.theme-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--border-color, #e0e0e0);
+    border-radius: 25px;
+    background-color: var(--button-bg, #ffffff);
+    color: var(--text-color, #2c3e50);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 2px 4px var(--shadow-color);
+
+    &:hover {
+        background-color: var(--button-hover-bg, #f0f0f0);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px var(--shadow-color);
+    }
+
+    &:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px var(--shadow-color);
+    }
+
+    // Size variations
+    &--small {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.8rem;
+        border-radius: 20px;
+
+        .theme-icon {
+            font-size: 1rem;
+        }
+    }
+
+    &--medium {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        border-radius: 25px;
+
+        .theme-icon {
+            font-size: 1.2rem;
+        }
+    }
+
+    &--large {
+        padding: 0.75rem 1.25rem;
+        font-size: 1rem;
+        border-radius: 30px;
+
+        .theme-icon {
+            font-size: 1.4rem;
+        }
+    }
+}
+
+.theme-icon {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.theme-label {
+    font-weight: 500;
+}

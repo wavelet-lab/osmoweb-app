@@ -1,0 +1,50 @@
+{
+    "name": "@osmoweb-app/backend",
+    "version": "0.6.0",
+    "description": "Backend for OsmoWeb application using NestJS",
+    "author": "Timur Davydov <dtv.comp@gmail.com>",
+    "license": "MIT",
+    "keywords": [],
+    "main": "dist/main.js",
+    "type": "module",
+    "scripts": {
+        "start": "node dist/main.js",
+        "build": "tsc && tsc-alias && tsc-esm-fix",
+        "watch": "tsc -w",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "@nestjs/common": "^11.1.19",
+        "@nestjs/config": "^4.0.4",
+        "@nestjs/core": "^11.1.19",
+        "@nestjs/jwt": "^11.0.2",
+        "@nestjs/platform-express": "^11.1.19",
+        "@nestjs/platform-ws": "^11.1.19",
+        "@nestjs/serve-static": "^5.0.5",
+        "@nestjs/websockets": "^11.1.19",
+        "@osmoweb/nestjs-microservice": "^0.6.2",
+        "@websdr/nestjs-microservice": "^0.6.0",
+        "class-transformer": "^0.5.1",
+        "class-validator": "^0.15.1",
+        "cookie-parser": "^1.4.7",
+        "dotenv": "^17.4.2",
+        "reflect-metadata": "^0.2.2",
+        "rxjs": "^7.0.0",
+        "ws": "^8.19.0"
+    },
+    "devDependencies": {
+        "@nestjs/testing": "^11.1.19",
+        "@types/cookie-parser": "^1.4.10",
+        "@types/ws": "^8.18.1",
+        "ts-loader": "^9.5.7",
+        "tsc-alias": "^1.8.17",
+        "tsc-esm-fix": "^3.1.2",
+        "typescript": "^6.0.3"
+    },
+    "jest": {
+        "transform": {
+            "^.+\\.ts$": "ts-jest"
+        },
+        "testEnvironment": "node"
+    }
+}

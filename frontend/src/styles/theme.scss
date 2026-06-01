@@ -1,0 +1,38 @@
+/* Theme Variables */
+
+/* Root CSS Variables for Theme Management */
+:root {
+    /* Light Theme (Default) */
+    --text-color: #2c3e50;
+    --bg-color: #ffffff;
+    --main-bg: #ffffff;
+    --header-bg: #f8f9fa;
+    --border-color: #e0e0e0;
+    --button-bg: #ffffff;
+    --button-hover-bg: #f0f0f0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+// [data-theme="light"],
+// .light-theme {
+//     --text-color: #2c3e50;
+//     --bg-color: #ffffff;
+//     --main-bg: #ffffff;
+//     --header-bg: #f8f9fa;
+//     --border-color: #e0e0e0;
+//     --button-bg: #ffffff;
+//     --button-hover-bg: #f0f0f0;
+//     --shadow-color: rgba(0, 0, 0, 0.1);
+// }
+
+[data-theme="dark"],
+.theme-dark {
+    --text-color: #e4e6ea;
+    --bg-color: #1a1a1a;
+    --main-bg: #2d2d2d;
+    --header-bg: #1f1f1f;
+    --border-color: #404040;
+    --button-bg: #3a3a3a;
+    --button-hover-bg: #4a4a4a;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}

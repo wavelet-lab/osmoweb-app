@@ -1,0 +1,49 @@
+{
+    "compilerOptions": {
+        // File Layout
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ]
+        },
+        // Environment Settings
+        "target": "esnext",
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        // Other Outputs
+        "sourceMap": true,
+        "declaration": true,
+        "declarationMap": true,
+        // Stricter Typechecking Options
+        "noUncheckedIndexedAccess": true,
+        // "exactOptionalPropertyTypes": true,
+        // Style Options
+        // "noImplicitReturns": true,
+        // "noImplicitOverride": true,
+        // "noUnusedLocals": true,
+        // "noUnusedParameters": true,
+        // "noFallthroughCasesInSwitch": true,
+        // "noPropertyAccessFromIndexSignature": true,
+        // Recommended Options
+        "strict": true,
+        "esModuleInterop": true,
+        "jsx": "preserve",
+        "verbatimModuleSyntax": true,
+        "isolatedModules": true,
+        "noUncheckedSideEffectImports": true,
+        "moduleDetection": "force",
+        "skipLibCheck": true,
+        "experimentalDecorators": true
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}
