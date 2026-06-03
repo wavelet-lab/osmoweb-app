@@ -4,6 +4,34 @@ OsmoWeb BTS Demo is a full-stack demonstration project that exposes an `osmo-bts
 
 The project is intended for local development and experimentation. It is not a production-ready BTS deployment package.
 
+## Getting Started
+
+For the full setup walkthrough, see [Getting started](docs/getting-started.md).
+
+Short version:
+
+```sh
+# 1. Prepare and start the Osmo backend services
+git clone https://github.com/wavelet-lab/osmoweb-tools.git
+cd osmoweb-tools
+./scripts/docker_osmo.sh build
+./scripts/docker_osmo.sh start
+
+# 2. Build and start the web demo
+cd ..
+git clone https://github.com/wavelet-lab/osmoweb-app.git
+cd osmoweb-app
+npm install
+npm run build
+npm run start
+```
+
+Then open:
+
+```text
+http://localhost:4000
+```
+
 ## Repository Layout
 
 ```text
@@ -11,14 +39,15 @@ The project is intended for local development and experimentation. It is not a p
 |-- backend/              # NestJS application and backend configuration
 |-- frontend/             # Vue 3 / Vite application
 |-- docs/
-|   |-- architecture.md   # System overview and runtime flows
-|   |-- backend.md        # Backend implementation notes
-|   |-- configuration.md  # Runtime configuration guide
-|   |-- development.md    # Local development workflow
-|   |-- frontend.md       # Frontend implementation notes
-|   |-- runtime-flows.md  # Detailed runtime scenarios
-|   `-- user-guide.md     # End-user walkthrough
-|-- package.json          # Root workspace scripts
+|   |-- architecture.md    # System overview and runtime flows
+|   |-- backend.md         # Backend implementation notes
+|   |-- configuration.md   # Runtime configuration guide
+|   |-- development.md     # Local development workflow
+|   |-- frontend.md        # Frontend implementation notes
+|   |-- getting-started.md  # End-to-end setup guide
+|   |-- runtime-flows.md   # Detailed runtime scenarios
+|   `-- user-guide.md      # End-user walkthrough
+|-- package.json           # Root workspace scripts
 `-- README.md
 ```
 
@@ -117,8 +146,21 @@ npm run build
 
 The frontend build is emitted to `frontend/dist`. The backend serves this directory as static content when running from the compiled backend.
 
+After building, run the compiled backend from the repository root:
+
+```sh
+npm run start
+```
+
+This starts the backend and serves the built frontend from the same server. Open:
+
+```text
+http://localhost:4000
+```
+
 ## Documentation
 
+- [Getting started](docs/getting-started.md)
 - [Architecture overview](docs/architecture.md)
 - [Backend documentation](docs/backend.md)
 - [Configuration guide](docs/configuration.md)
