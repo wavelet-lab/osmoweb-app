@@ -8,6 +8,7 @@ lerna-debug.log*
 
 # Build outputs
 dist/
+dev-dist/
 build/
 *.tsbuildinfo
 
@@ -92,7 +93,6 @@ jspm_packages/
 
 # Gatsby files
 .cache/
-public
 
 # Storybook build outputs
 .out
@@ -101,6 +101,7 @@ public
 # Temporary folders
 tmp/
 temp/
+old/
 
 # Runtime data
 pids

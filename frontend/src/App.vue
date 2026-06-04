@@ -12,9 +12,7 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount, ref } from 'vue';
-import { setApiBase, login, logout } from '@websdr/frontend-core';
-
-setApiBase(import.meta.env.VITE_API_URL);
+import { login, logout } from '@websdr/frontend-core';
 
 const authReady = ref(false);
 const authError = ref<string | null>(null);

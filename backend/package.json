@@ -1,6 +1,6 @@
 {
     "name": "@osmoweb-app/backend",
-    "version": "0.6.0",
+    "version": "0.6.3",
     "description": "Backend for OsmoWeb application using NestJS",
     "author": "Timur Davydov <dtv.comp@gmail.com>",
     "license": "MIT",
@@ -22,8 +22,8 @@
         "@nestjs/platform-ws": "^11.1.19",
         "@nestjs/serve-static": "^5.0.5",
         "@nestjs/websockets": "^11.1.19",
-        "@osmoweb/nestjs-microservice": "^0.6.2",
-        "@websdr/nestjs-microservice": "^0.6.0",
+        "@osmoweb/nestjs-microservice": "^0.6.3",
+        "@websdr/nestjs-microservice": "^0.6.1",
         "class-transformer": "^0.5.1",
         "class-validator": "^0.15.1",
         "cookie-parser": "^1.4.7",
