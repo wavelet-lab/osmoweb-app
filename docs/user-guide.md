@@ -137,6 +137,8 @@ Then select or enter the ARFCN value.
 
 ![Selecting ARFCN](images/user-guide/bts_select_arfcn.png)
 
+Before starting the BTS, make sure that the selected ARFCN maps to uplink and downlink frequencies that are free in your local test environment. If another signal or device is already using one of those frequencies, phones may fail to see the BTS or fail to attach to it.
+
 ## Start The BTS Runtime
 
 After selecting an SDR device and confirming the BTS radio configuration, press `Start` in the `BTS Control` panel.
@@ -295,10 +297,24 @@ Check:
 - the selected technology is GSM
 - a GSM band is selected
 - ARFCN is selected
+- the selected ARFCN maps to free uplink and downlink frequencies
 - backend and WebSocket services are reachable
 - browser permissions were granted
 
 Error details may appear in the browser console, the statistics modal state section, or the runtime log area.
+
+### Phone Does Not See Or Attach To The BTS
+
+If a phone does not show `OsmoMSC 2G`, `90170 2G`, or cannot connect after the BTS is running, check the radio environment first.
+
+Make sure that:
+
+- the selected GSM band is supported by the phone
+- the selected ARFCN is valid for that band
+- both uplink and downlink frequencies are free
+- no nearby signal, device, or previous test setup is occupying the same channel
+- the SDR device is still selected and active
+- the BTS runtime logs do not show radio or transceiver errors
 
 ## Browser Console Messages
 

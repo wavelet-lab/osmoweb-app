@@ -6,6 +6,8 @@ The project is intended for local development and experimentation. It is not a p
 
 ## Getting Started
 
+A hosted demo is available at [app.websdr.io](https://app.websdr.io).
+
 For the full setup walkthrough, see [Getting started](docs/getting-started.md).
 
 Short version:

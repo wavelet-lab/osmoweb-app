@@ -2,6 +2,12 @@
 
 This guide walks through setting up the OsmoWeb BTS demo on a local machine. It covers the required repositories, building or running the Osmocom backend services, building `osmoweb-app`, and starting the full demo.
 
+## 🌍 Hosted Demo
+
+A hosted demo build is available at [app.websdr.io](https://app.websdr.io).
+
+Use the hosted demo for a quick look at the browser application. For a full local setup with your own Osmo backend services, SDR device, logs, and development workflow, follow the steps below.
+
 ## 🧭 Repository Map
 
 The demo is composed from several related repositories and npm packages:
