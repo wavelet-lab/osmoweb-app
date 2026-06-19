@@ -55,10 +55,16 @@ Install the following tools before starting:
 - Git
 - Node.js and npm
 - A supported Chromium-based browser with WebUSB support
-- An SDR device supported by your runtime setup
+- An SDR device from the WebSDR [supported SDR hardware list](https://github.com/wavelet-lab/websdr#supported-sdr-hardware) with transmit (TX) capability. Receive-only hardware, including RTL-SDR dongles, cannot run a BTS.
 - Either native build dependencies for Osmocom or Docker with Docker Compose
 
 For app-specific ports and environment variables, see the [Configuration guide](configuration.md).
+
+### Operating System Support
+
+Linux is the supported and recommended host for a complete local setup. Although the Node.js backend and frontend are cross-platform, the Osmocom services require a Linux environment and the scripts provided by `osmoweb-tools` are Bash scripts written for Linux.
+
+The web application can be developed or built on Windows and macOS when the Osmo backend is hosted separately. A full setup on Windows may also be possible with WSL 2 and Docker, but it is not currently tested or officially supported. Expect possible additional work around Docker integration, USB device forwarding, WebUSB access, and Linux-specific assumptions in the helper scripts.
 
 ## ① Clone `osmoweb-tools`
 

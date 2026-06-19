@@ -74,6 +74,14 @@ This demo application is built around several Wavelet Lab / OsmoWeb projects:
 - Node.js and npm.
 - Access to the shared `@osmoweb/*` and `@websdr/*` npm packages.
 - A browser environment that supports the APIs used by the frontend runtime, including WebUSB for SDR device selection.
+- An SDR device from the WebSDR [supported SDR hardware list](https://github.com/wavelet-lab/websdr#supported-sdr-hardware) **with transmit (TX) capability**. Receive-only devices, such as RTL-SDR dongles, cannot be used to run a BTS.
+- Linux for a supported full local deployment of the Osmo backend. The Node.js application itself is cross-platform, but the Osmocom services and the Bash tooling in `osmoweb-tools` target Linux.
+
+### Operating System Support
+
+- **Linux:** supported and recommended for running the complete application, including the Osmo backend and `osmoweb-tools` scripts.
+- **Windows and macOS:** the Node.js backend and frontend can run on these platforms, but a complete native Osmo backend setup is not supported by this project.
+- **Windows with WSL 2 and Docker:** may work because the Osmo services run in Linux containers and the helper scripts can be executed inside WSL. This setup is not currently tested or officially supported; USB device forwarding, WebUSB access, Docker integration, and Linux-specific assumptions in the Bash scripts may require additional configuration.
 
 ## Install
 
