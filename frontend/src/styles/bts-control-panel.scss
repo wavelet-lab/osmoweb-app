@@ -1,6 +1,11 @@
 /* Styles for the BTS Control Panel component */
 
 .bts-control-panel {
+    --bts-statistics-button-bg: #edf4ff;
+    --bts-statistics-button-color: #1f5eb8;
+    --bts-statistics-button-hover-bg: #d2e3ff;
+    --bts-statistics-button-hover-color: #163f7a;
+
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -12,6 +17,14 @@
     background-color: var(--button-bg, #ffffff);
     color: var(--text-color, #2c3e50);
     text-align: left;
+}
+
+[data-theme="dark"] .bts-control-panel,
+.theme-dark .bts-control-panel {
+    --bts-statistics-button-bg: #242b38;
+    --bts-statistics-button-color: #9dc5ff;
+    --bts-statistics-button-hover-bg: #2f3a4f;
+    --bts-statistics-button-hover-color: #d4e6ff;
 }
 
 .bts-control-panel__header {
@@ -111,8 +124,8 @@
     padding: 0.75rem;
     border: 0;
     border-radius: 6px;
-    background-color: #edf4ff;
-    color: #1f5eb8;
+    background-color: var(--bts-statistics-button-bg);
+    color: var(--bts-statistics-button-color);
     font: inherit;
     font-size: 1rem;
     font-weight: 700;
@@ -121,12 +134,21 @@
 }
 
 .bts-control-panel__statistics-button:hover {
-    background-color: #dceaff;
+    background-color: var(--bts-statistics-button-hover-bg);
+    color: var(--bts-statistics-button-hover-color);
+}
+
+.bts-control-panel__statistics-button:focus-visible {
+    outline: 2px solid var(--input-focus-border, var(--app-focus-color, #007bff));
+    outline-offset: 0.125rem;
+    box-shadow: var(--input-focus-shadow, var(--app-focus-ring, 0 0 0 0.1875rem rgba(0, 123, 255, 0.18)));
+    background-color: var(--bts-statistics-button-hover-bg);
+    color: var(--bts-statistics-button-hover-color);
 }
 
 .bts-control-panel__metric dt {
     margin: 0 0 0.25rem;
-    color: color-mix(in srgb, var(--text-color, #2c3e50) 72%, transparent);
+    color: color-mix(in srgb, var(--text-color, #2c3e50) 88%, transparent);
     font-size: 0.8rem;
     font-weight: 700;
 }

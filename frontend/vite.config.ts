@@ -4,6 +4,10 @@ import { VitePWA } from 'vite-plugin-pwa';
 import { fileURLToPath, URL } from 'node:url';
 
 const srcPath = fileURLToPath(new URL('./src', import.meta.url));
+const frontendRoot = fileURLToPath(new URL('.', import.meta.url));
+const workspaceNodeModules = fileURLToPath(new URL('../node_modules', import.meta.url));
+const localWebsdrRoot = fileURLToPath(new URL('../../websdr', import.meta.url));
+const localOsmowebRoot = fileURLToPath(new URL('../../osmoweb', import.meta.url));
 
 export default defineConfig(({mode}) => {
     const devMode = mode === 'development';
@@ -136,12 +140,12 @@ export default defineConfig(({mode}) => {
                 },
             },
             fs: {
-                // Allow serving files from one level up to the project root (e.g. for shared types) just for development.
+                // Allow serving linked local packages and their generated WASM assets in development.
                 allow: [
-                    '.',
-                    '../node_modules',
-                    '../../websdr/packages/frontend-core/dist',
-                    '../../osmoweb/packages/frontend-core/dist',
+                    frontendRoot,
+                    workspaceNodeModules,
+                    localWebsdrRoot,
+                    localOsmowebRoot,
                 ],
             },
         },

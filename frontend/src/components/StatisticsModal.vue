@@ -7,7 +7,7 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { computed, h } from 'vue';
+import { computed, h, nextTick, onBeforeUnmount, ref, watch } from 'vue';
 
 export type StatisticsValue = string | number | boolean | null | StatisticsValue[] | {
     [key: string]: StatisticsValue;
@@ -29,10 +29,82 @@ const emit = defineEmits<{
     (event: 'close'): void;
 }>();
 
+const modalRef = ref<HTMLElement | null>(null);
+const closeButtonRef = ref<HTMLButtonElement | null>(null);
+let previouslyFocusedElement: HTMLElement | null = null;
+
 const close = () => {
     emit('update:modelValue', false);
     emit('close');
 };
+
+const focusableSelector = [
+    'a[href]',
+    'button:not([disabled])',
+    'textarea:not([disabled])',
+    'input:not([disabled])',
+    'select:not([disabled])',
+    'details summary',
+    '[tabindex]:not([tabindex="-1"])',
+].join(',');
+
+const getFocusableElements = () => {
+    if (!modalRef.value) return [];
+    return Array.from(modalRef.value.querySelectorAll<HTMLElement>(focusableSelector))
+        .filter(element => !element.hasAttribute('disabled') && element.offsetParent !== null);
+};
+
+const focusInitialElement = async () => {
+    await nextTick();
+    closeButtonRef.value?.focus();
+};
+
+const handleKeydown = (event: KeyboardEvent) => {
+    event.stopPropagation();
+
+    if (event.key === 'Escape') {
+        event.preventDefault();
+        close();
+        return;
+    }
+
+    if (event.key !== 'Tab') return;
+
+    const focusableElements = getFocusableElements();
+    if (focusableElements.length === 0) {
+        event.preventDefault();
+        modalRef.value?.focus();
+        return;
+    }
+
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+    const activeElement = document.activeElement;
+
+    if (event.shiftKey && activeElement === firstElement) {
+        event.preventDefault();
+        lastElement?.focus();
+    } else if (!event.shiftKey && activeElement === lastElement) {
+        event.preventDefault();
+        firstElement?.focus();
+    }
+};
+
+watch(() => props.modelValue, async (isOpen) => {
+    if (isOpen) {
+        previouslyFocusedElement = document.activeElement instanceof HTMLElement
+            ? document.activeElement
+            : null;
+        await focusInitialElement();
+    } else {
+        previouslyFocusedElement?.focus();
+        previouslyFocusedElement = null;
+    }
+});
+
+onBeforeUnmount(() => {
+    previouslyFocusedElement?.focus();
+});
 
 const rootEntries = computed(() => normalizeEntries(props.statistics));
 
@@ -119,13 +191,14 @@ const JsonStatisticsNode = defineComponent({
 
 <template>
     <Teleport to="body">
-        <div v-if="props.modelValue" class="statistics-modal" role="dialog" aria-modal="true"
-            :aria-label="props.title" @click.self="close">
-            <section class="statistics-modal__dialog">
+        <div v-if="props.modelValue" ref="modalRef" class="statistics-modal" role="dialog" aria-modal="true"
+            aria-labelledby="statistics-modal-title" tabindex="-1" @click.self="close" @keydown="handleKeydown">
+            <section class="statistics-modal__dialog" role="document">
                 <header class="statistics-modal__header">
-                    <h2 class="statistics-modal__title">{{ props.title }}</h2>
-                    <button class="statistics-modal__close" type="button" aria-label="Close statistics" @click="close">
-                        x
+                    <h2 id="statistics-modal-title" class="statistics-modal__title">{{ props.title }}</h2>
+                    <button ref="closeButtonRef" class="statistics-modal__close" type="button"
+                        aria-label="Close statistics" @click="close">
+                        <span aria-hidden="true">×</span>
                     </button>
                 </header>
 

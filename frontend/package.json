@@ -1,6 +1,6 @@
 {
   "name": "@osmoweb-app/frontend",
-  "version": "0.6.4",
+  "version": "0.6.5",
   "description": "Frontend for the OsmoWeb application using Vue 3",
   "author": "Timur Davydov <dtv.comp@gmail.com>",
   "license": "MIT",
@@ -11,20 +11,20 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@osmoweb/core": "^0.6.4",
-    "@osmoweb/frontend-core": "^0.6.4",
-    "@osmoweb/vue3-components": "^0.6.4",
-    "@websdr/core": "^0.6.2",
-    "@websdr/frontend-core": "^0.6.2",
-    "@websdr/vue3-components": "^0.6.2",
+    "@osmoweb/core": "^0.6.5",
+    "@osmoweb/frontend-core": "^0.6.5",
+    "@osmoweb/vue3-components": "^0.6.5",
+    "@websdr/core": "^0.6.3",
+    "@websdr/frontend-core": "^0.6.3",
+    "@websdr/vue3-components": "^0.6.3",
     "buffer": "^6.0.3",
     "vue": "^3.5.33",
     "vue-router": "^5.0.6"
   },
   "devDependencies": {
-    "@osmoweb/backend-core": "^0.6.4",
+    "@osmoweb/backend-core": "^0.6.5",
     "@types/node": "^26.0.0",
-    "@vitejs/plugin-vue": "^6.0.6",
+    "@vitejs/plugin-vue": "^6.0.8",
     "sass": "^1.99.0",
     "typescript": "^6.0.3",
     "vite": "^8.0.16",

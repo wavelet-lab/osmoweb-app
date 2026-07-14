@@ -58,8 +58,14 @@
     cursor: pointer;
 }
 
-.statistics-modal__close:hover {
-    background-color: var(--button-hover-bg, #f0f0f0);
+.statistics-modal__close:hover,
+.statistics-modal__close:focus-visible {
+    border-color: var(--app-focus-color, #007bff);
+    background-color: #dceaff;
+    color: #163f7a;
+    outline: 2px solid var(--app-focus-color, #007bff);
+    outline-offset: 0.125rem;
+    box-shadow: var(--app-focus-ring, 0 0 0 0.1875rem rgba(0, 123, 255, 0.18));
 }
 
 .statistics-modal__body {
@@ -89,9 +95,38 @@
     min-height: 40px;
     padding: 0.625rem 0.75rem;
     cursor: pointer;
+    list-style: none;
+}
+
+.statistics-modal__group-summary::-webkit-details-marker {
+    display: none;
+}
+
+.statistics-modal__group-summary::after {
+    content: "";
+    flex: 0 0 auto;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.15s ease-in-out;
+}
+
+.statistics-modal__group[open] > .statistics-modal__group-summary::after {
+    transform: rotate(225deg);
+}
+
+.statistics-modal__group-summary:hover,
+.statistics-modal__group-summary:focus-visible {
+    background-color: #edf4ff;
+    outline: 2px solid var(--app-focus-color, #007bff);
+    outline-offset: -2px;
+    box-shadow: var(--app-focus-ring-inset, inset 0 0 0 0.1875rem rgba(0, 123, 255, 0.18));
 }
 
 .statistics-modal__group-title {
+    flex: 1 1 auto;
     min-width: 0;
     overflow-wrap: anywhere;
     font-size: 1.05rem;
@@ -99,8 +134,9 @@
 }
 
 .statistics-modal__group-count {
+    margin-left: auto;
     flex: 0 0 auto;
-    color: color-mix(in srgb, var(--text-color, #2c3e50) 68%, transparent);
+    color: color-mix(in srgb, var(--text-color, #2c3e50) 86%, transparent);
     font-size: 0.9rem;
     font-weight: 700;
 }
@@ -128,7 +164,7 @@
 
 .statistics-modal__row-key {
     margin: 0;
-    color: color-mix(in srgb, var(--text-color, #2c3e50) 70%, transparent);
+    color: color-mix(in srgb, var(--text-color, #2c3e50) 86%, transparent);
     font-size: 1.05rem;
     font-weight: 700;
 }
@@ -143,7 +179,7 @@
 
 .statistics-modal__empty {
     padding: 2rem 1rem;
-    color: color-mix(in srgb, var(--text-color, #2c3e50) 72%, transparent);
+    color: color-mix(in srgb, var(--text-color, #2c3e50) 86%, transparent);
     text-align: center;
 }
 

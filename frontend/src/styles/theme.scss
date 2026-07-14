@@ -11,6 +11,9 @@
     --button-bg: #ffffff;
     --button-hover-bg: #f0f0f0;
     --shadow-color: rgba(0, 0, 0, 0.1);
+    --app-focus-color: #007bff;
+    --app-focus-ring: 0 0 0 0.1875rem rgba(0, 123, 255, 0.18);
+    --app-focus-ring-inset: inset 0 0 0 0.1875rem rgba(0, 123, 255, 0.18);
 }
 
 // [data-theme="light"],
@@ -35,4 +38,7 @@
     --button-bg: #3a3a3a;
     --button-hover-bg: #4a4a4a;
     --shadow-color: rgba(0, 0, 0, 0.5);
+    --app-focus-color: #4dabf7;
+    --app-focus-ring: 0 0 0 0.1875rem rgba(77, 171, 247, 0.34);
+    --app-focus-ring-inset: inset 0 0 0 0.1875rem rgba(77, 171, 247, 0.34);
 }
